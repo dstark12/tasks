@@ -127,15 +127,14 @@ export function makeMath(addends: number[]): string {
 export function injectPositive(values: number[]): number[] {
     const negativeIndex = values.findIndex((num) => num < 0);
     const sum = values
-        .slice(0, negativeIndex)
+        .slice(0, negativeIndex === -1 ? values.length : negativeIndex)
         .reduce((acc, num) => acc + num, 0);
     if (negativeIndex === -1) {
         return [...values, sum];
-    } else {
-        return [
-            ...values.slice(0, negativeIndex + 1),
-            sum,
-            ...values.slice(negativeIndex + 1),
-        ];
     }
+    return [
+        ...values.slice(0, negativeIndex + 1),
+        sum,
+        ...values.slice(negativeIndex + 1),
+    ];
 }
