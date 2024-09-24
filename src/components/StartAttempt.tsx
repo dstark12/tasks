@@ -1,10 +1,8 @@
-import { endianness } from "os";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function StartAttempt(): React.JSX.Element {
     const [attempts, setAttempts] = useState<number>(4);
-    const [quizButton, setButton] = useState<string>("Start Quiz");
     const [endButton, setend] = useState<boolean>(true);
     const [startenable, setstart] = useState<boolean>(false);
     function mulligan() {
