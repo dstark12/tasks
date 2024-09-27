@@ -25,7 +25,9 @@ export function EditMode(): React.JSX.Element {
                     isEditMode ? "Switch to View Mode" : "Switch to Edit Mode"
                 }
                 checked={isEditMode}
-                onChange={() => setIsEditMode(!isEditMode)}
+                onChange={() => {
+                    setIsEditMode(!isEditMode);
+                }}
             />
             {isEditMode ?
                 <div>
